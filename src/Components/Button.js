@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../Styling/Button.css";
 class Button extends Component {
   render() {
-    return <button></button>;
+    return <button >{this.props.buttonText}</button>;
   }
 }
 

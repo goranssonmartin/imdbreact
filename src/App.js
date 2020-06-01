@@ -1,12 +1,15 @@
 import React from "react";
-import "../Styling/App.css";
-import Button from "./Button";
-import Card from "./Card";
+import "./App.css";
+import Button from "./Components/Button";
+import Card from "./Components/Card";
+import imdbData from "./Data/imdb.json";
 
 function App() {
   return (
     <div className="App">
-      <Button />
+      <Button buttonText="Add new actor" />
+      <Button buttonText="Sort by name" />
+      <Button buttonText="Sort by popularity" />
       <table>
         <tr>
           <th>Image</th>
