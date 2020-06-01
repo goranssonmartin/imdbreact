@@ -4,10 +4,18 @@ import Button from "./Components/Button";
 import Card from "./Components/Card";
 import imdbData from "./Data/imdb.json";
 
+let numberOfActors = 5;
+let cardGenerator = imdbData.slice(0, numberOfActors);
+const addNewActor = () => {
+  numberOfActors++;
+  cardGenerator = imdbData.slice(0, numberOfActors);
+};
+const deleteActor = () => {};
+
 function App() {
   return (
     <div className="App">
-      <Button buttonText="Add new actor" />
+      <Button buttonText="Add new actor" buttonOnClick={addNewActor} />
       <Button buttonText="Sort by name" />
       <Button buttonText="Sort by popularity" />
       <table>
@@ -17,7 +25,14 @@ function App() {
           <th>Popularity</th>
           <th>Action</th>
         </tr>
-        <Card />
+        {cardGenerator.map((i) => (
+          <Card
+            imageSource={i.pictureUrl}
+            name={i.name}
+            popularity={i.popularity}
+            onClickFunction={deleteActor}
+          />
+        ))}
       </table>
     </div>
   );

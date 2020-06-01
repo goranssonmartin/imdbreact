@@ -6,7 +6,7 @@ class Card extends Component {
     return (
       <tr>
         <td>
-          <img src={this.props.imageSource} alt={this.props.name}></img>
+          <img src={this.props.imageSource} alt={this.props.name} className="cardImage"></img>
         </td>
         <td>
           <p>{this.props.name}</p>
@@ -14,7 +14,7 @@ class Card extends Component {
         <td>
           <p>{this.props.popularity}</p>
         </td>
-        <Button buttonText="Delete" />
+        <td><Button buttonText="Delete" buttonOnClick={this.props.onClickFunction}/></td>
       </tr>
     );
   }
