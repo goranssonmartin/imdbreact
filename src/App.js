@@ -10,7 +10,10 @@ const addNewActor = () => {
   numberOfActors++;
   cardGenerator = imdbData.slice(0, numberOfActors);
 };
-const deleteActor = () => {};
+const deleteActor = (e) => {
+  const whichElementToRemove = e.target.parentElement.parentElement.rowIndex - 1;
+  cardGenerator.splice(whichElementToRemove.splice);
+};
 
 function App() {
   return (
@@ -19,20 +22,25 @@ function App() {
       <Button buttonText="Sort by name" />
       <Button buttonText="Sort by popularity" />
       <table>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>Action</th>
-        </tr>
-        {cardGenerator.map((i) => (
-          <Card
-            imageSource={i.pictureUrl}
-            name={i.name}
-            popularity={i.popularity}
-            onClickFunction={deleteActor}
-          />
-        ))}
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cardGenerator.map((i) => (
+            <Card
+              key={cardGenerator.indexOf(i)}
+              imageSource={i.pictureUrl}
+              name={i.name}
+              popularity={i.popularity}
+              onClickFunction={deleteActor}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );
