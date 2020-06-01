@@ -12,7 +12,7 @@ const addNewActor = () => {
 };
 const deleteActor = (e) => {
   const whichElementToRemove = e.target.parentElement.parentElement.rowIndex - 1;
-  cardGenerator.splice(whichElementToRemove.splice);
+  cardGenerator.splice(whichElementToRemove,1);
 };
 
 function App() {
